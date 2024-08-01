@@ -13,3 +13,6 @@ encryption = "age"
 [age]
     identity = "{{ .chezmoi.homeDir }}/.key.txt"
     recipient = "age1jkznh978lzn6g76hjm6fz0wkpenz788ltmgeg7g7cefqyuunl9qqqkfwxv"
+
+[hooks.read-source-state.pre]
+    command = "{{ .chezmoi.homeDir }}/.local/share/chezmoi/.install-password-manager.sh"
