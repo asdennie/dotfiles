@@ -1,0 +1,15 @@
+{{- $email := promptStringOnce . "email" "Email address" -}}
+{{- $name := promptStringOnce . "name" "Commit name" -}}
+{{- $agekey := promptStringOnce . "agekey" "Enter the age private key" -}}
+
+[data]
+    email = {{ $email | quote }}
+    name = {{ $name | quote }}
+
+[data.age]
+    key = {{ $agekey | quote }}
+
+encryption = "age"
+[age]
+    identity = "{{ .chezmoi.homeDir }}/.key.txt"
+    recipient = "age1jkznh978lzn6g76hjm6fz0wkpenz788ltmgeg7g7cefqyuunl9qqqkfwxv"
