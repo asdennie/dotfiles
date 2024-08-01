@@ -1,6 +1,6 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $name := promptStringOnce . "name" "Commit name" -}}
-{{- $agekey := promptStringOnce . "agekey" "Enter the age private key" -}}
+{{- $agekey := promptStringOnce . "age.key" "Enter the age private key" -}}
 
 [data]
     email = {{ $email | quote }}
@@ -15,4 +15,5 @@ encryption = "age"
     recipient = "age1jkznh978lzn6g76hjm6fz0wkpenz788ltmgeg7g7cefqyuunl9qqqkfwxv"
 
 [hooks.read-source-state.pre]
-    command = "{{ .chezmoi.homeDir }}/.local/share/chezmoi/.install-password-manager.sh"
+    command = "echo"
+    args = ["pre-read-source-state-hook"]
